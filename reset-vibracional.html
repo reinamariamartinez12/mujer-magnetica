@@ -553,7 +553,7 @@ function checkGate(){
   const input = document.getElementById('gateInput');
   const error = document.getElementById('gateError');
   if (input.value.trim().toUpperCase() === GATE_PASSWORD){
-    localStorage.setItem(STORAGE_PREFIX + 'unlocked', 'true');
+    sessionStorage.setItem(STORAGE_PREFIX + 'unlocked', 'true');
     document.getElementById('gateOverlay').style.display = 'none';
     document.body.classList.remove('locked');
     error.style.display = 'none';
@@ -564,7 +564,7 @@ function checkGate(){
 document.getElementById('gateInput').addEventListener('keydown', (e) => {
   if (e.key === 'Enter') checkGate();
 });
-if (localStorage.getItem(STORAGE_PREFIX + 'unlocked') === 'true'){
+if (sessionStorage.getItem(STORAGE_PREFIX + 'unlocked') === 'true'){
   document.getElementById('gateOverlay').style.display = 'none';
   document.body.classList.remove('locked');
 }
